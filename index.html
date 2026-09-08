@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NBNZIA — Creative Developer & 3D Motion Architect | The Prestige</title>
+  <meta name="description" content="Certified Webflow partner & creative developer building bespoke experiences with Three.js, GSAP motion, and conversion engineering. Every great trick has three parts. Your website is the Prestige." />
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Lenis CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.css" />
+</head>
+<body class="is--scroll-locked">
+
+  <!-- =========================================================================
+       CUSTOM MAGNETIC CURSOR
+       ========================================================================= -->
+  <div class="custom-cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- =========================================================================
+       PRELOADER
+       ========================================================================= -->
+  <aside class="preloader" aria-label="Loading experience">
+    <div class="preloader__top">
+      <div>[ STATUS // LOADING ENGINE ]</div>
+      <div>THREE.JS · GSAP · LENIS</div>
+    </div>
+    <div class="preloader__center">
+      <div class="preloader__wordmark">
+        <span>NBNZIA</span>
+        <span class="accent">✦</span>
+        <span>STUDIO</span>
+      </div>
+      <div class="preloader__sub">THE ILLUSIONIST'S ARCHITECTURE</div>
+    </div>
+    <div class="preloader__bottom">
+      <div>
+        <div class="preloader__progress-wrap">
+          <div class="preloader__progress-bar"></div>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">CALIBRATING 3D SHADERS</div>
+      </div>
+      <div class="preloader__counter">00%</div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       THREE.JS WEBGL CANVAS STAGE
+       ========================================================================= -->
+  <div id="webgl-canvas-container" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar" id="top-nav">
+    <div class="navbar__inner">
+      <div class="navbar__brand">
+        <a href="#hero" class="navbar__logo" data-cursor-hover>
+          NBNZIA<span class="dot"></span>
+        </a>
+        <div class="navbar__status">
+          <div class="navbar__status-indicator"></div>
+          <span>AVAILABLE FOR Q2/Q3</span>
+        </div>
+      </div>
+
+      <nav class="navbar__links" aria-label="Main navigation">
+        <a href="#about" class="nav__link" data-cursor-hover>
+          <span class="nav__link-inner">
+            <span class="nav__link-text">About</span>
+            <span class="nav__link-text nav__link-text--clone">About</span>
+          </span>
+        </a>
+        <a href="#services" class="nav__link" data-cursor-hover>
+          <span class="nav__link-inner">
+            <span class="nav__link-text">Services</span>
+            <span class="nav__link-text nav__link-text--clone">Services</span>
+          </span>
+        </a>
+        <a href="#process" class="nav__link" data-cursor-hover>
+          <span class="nav__link-inner">
+            <span class="nav__link-text">Process</span>
+            <span class="nav__link-text nav__link-text--clone">Process</span>
+          </span>
+        </a>
+        <a href="#work" class="nav__link" data-cursor-hover>
+          <span class="nav__link-inner">
+            <span class="nav__link-text">Work</span>
+            <span class="nav__link-text nav__link-text--clone">Work</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="navbar__actions">
+        <!-- Web Audio API toggle -->
+        <button class="audio-toggle" type="button" aria-label="Toggle Sound Effects" data-cursor-hover>
+          <div class="audio-bars">
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+            <span class="audio-bar"></span>
+          </div>
+          <span class="audio-label">SOUND FX</span>
+        </button>
+
+        <a href="#contact" class="btn btn--primary" data-cursor-hover>
+          <span class="button-text_wrap">
+            <span class="button-text">Let's talk</span>
+            <span class="button-text">Let's talk</span>
+          </span>
+          <span class="arrow-wrap">
+            <svg class="arrow-top" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="arrow-bottom" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN SITE CONTENT
+       ========================================================================= -->
+  <div class="site-wrapper">
+
+    <!-- HERO SECTION -->
+    <section class="hero section" id="hero">
+      <div class="container hero__content">
+        <div class="hero__pretitle">
+          <span>CREATIVE TECH · THREE.JS · GSAP MOTION</span>
+        </div>
+
+        <h1 class="hero__sentence">
+          <span class="text-reveal"><span class="text-reveal-inner">EVERY GREAT TRICK</span></span>
+          <span class="text-reveal"><span class="text-reveal-inner">HAS THREE PARTS.</span></span>
+          <span class="text-reveal"><span class="text-reveal-inner"><span class="prestige-span">YOUR WEBSITE IS THE PRESTIGE.</span></span></span>
+        </h1>
+
+        <div class="hero__bottom">
+          <p class="hero__description">
+            Certified partner with 7+ years of experience, a specialized team of designers, animators, and creative engineers. We craft bespoke digital stages that transform passive scrollers into passionate believers.
+          </p>
+          <div class="hero__meta">
+            <div>TECHNIQUE: <span>THREE.JS & BESPOKE GSAP</span></div>
+            <div>STATUS: <span>ACTIVE WORLDWIDE // 117+ BUILDS</span></div>
+            <div>PHILOSOPHY: <span>ZERO TEMPLATES · PURE ILLUSION</span></div>
+          </div>
+          <div class="hero__scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>EXPLORE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO & PHILOSOPHY SECTION -->
+    <section class="manifesto-section section" id="about">
+      <div class="container">
+        <div class="manifesto-grid">
+          <aside class="manifesto-sidebar">
+            <p>
+              [ PHILOSOPHY ]<br /><br />
+              CERTIFIED PARTNER.<br />
+              7+ YEARS IN CRAFT.<br />
+              CUSTOM EVERYTHING.<br />
+              SITES THAT PERFORM.
+            </p>
+          </aside>
+
+          <div class="manifesto-content">
+            <p class="manifesto-text">
+              We operate at the intersection of <strong>high-end editorial design</strong>, <strong>interactive WebGL mathematics</strong>, and <strong>conversion psychology</strong>.
+              <br /><br />
+              Templates and safe layouts bore audiences into closing tabs. We engineer <span class="highlight">unforgettable moments of surprise</span> — micro-interactions that feel expensive, transitions that feel organic, and 3D scenes that immerse without compromising speed.
+            </p>
+
+            <div class="stats-strip">
+              <div class="stat-item">
+                <div class="stat-number" data-target="117" data-suffix="+">0+</div>
+                <div class="stat-label">Projects Delivered</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="15" data-suffix="+">0+</div>
+                <div class="stat-label">Countries Represented</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+                <div class="stat-label">Custom GSAP Motion</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="99.8" data-suffix="%">0%</div>
+                <div class="stat-label">Client Retention Rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES ACCORDION ("WHAT WE DO") -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-badge">
+          <svg viewBox="0 0 14 13" fill="currentColor"><path d="M10.4397 0C12.406 0 14 1.49129 14 3.33088C14 5.81492 12.5517 7.05695 9.83621 9.59745C7.66379 11.6298 7 13 7 13C7 13 6.33621 11.6298 4.16379 9.59745C1.44828 7.05695 0 5.81492 0 3.33088C0 1.49129 1.59402 0 3.56034 0C5.20795 0 6.5939 1.04708 7 2.46872C7.4061 1.04708 8.79205 0 10.4397 0Z"/></svg>
+          <span>{ WHAT WE DO }</span>
+        </div>
+
+        <h2 class="section-title">ENGINEERING CAPABILITIES</h2>
+        <p class="section-subtitle">
+          Every solution is built from raw code up — optimized for velocity, search authority, and aesthetic superiority.
+        </p>
+
+        <!-- Dynamic Hover Preview Card Follower -->
+        <div class="service-cursor-preview" aria-hidden="true">
+          <img src="" alt="Service preview" />
+        </div>
+
+        <div class="services-list" style="margin-top: 4rem;">
+          <!-- Item 01 -->
+          <div class="service-item is-open" data-preview="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop">
+            <div class="service-header" data-cursor-hover>
+              <span class="service-num">[ 01 ]</span>
+              <h3 class="service-name">Modern Webflow & Front-End Engineering</h3>
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              </div>
+            </div>
+            <div class="service-body" style="height: auto;">
+              <div class="service-body-inner">
+                <p class="service-desc">
+                  We build scalable digital foundations using clean BEM naming, modular CMS architectures, and custom JavaScript injections. Whether it’s a high-converting SaaS landing page or a multi-page enterprise ecosystem, the code is spotless and lightning-fast.
+                </p>
+                <div class="service-tags">
+                  <span class="service-tag">BEM Architecture</span>
+                  <span class="service-tag">Custom CMS Systems</span>
+                  <span class="service-tag">Semantic HTML5</span>
+                  <span class="service-tag">99+ PageSpeed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 02 -->
+          <div class="service-item" data-preview="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop">
+            <div class="service-header" data-cursor-hover>
+              <span class="service-num">[ 02 ]</span>
+              <h3 class="service-name">UI/UX & Scalable Design Systems</h3>
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              </div>
+            </div>
+            <div class="service-body">
+              <div class="service-body-inner">
+                <p class="service-desc">
+                  Every interface is sculpted with visual balance, clarity, and intentional typography. We create comprehensive Figma design tokens, intuitive user journeys, and component systems that maintain fidelity across every screen size.
+                </p>
+                <div class="service-tags">
+                  <span class="service-tag">Figma Tokens</span>
+                  <span class="service-tag">Design Systems</span>
+                  <span class="service-tag">Responsive Architecture</span>
+                  <span class="service-tag">Information Architecture</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 03 -->
+          <div class="service-item" data-preview="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop">
+            <div class="service-header" data-cursor-hover>
+              <span class="service-num">[ 03 ]</span>
+              <h3 class="service-name">Bespoke Motion & GSAP Architecture</h3>
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              </div>
+            </div>
+            <div class="service-body">
+              <div class="service-body-inner">
+                <p class="service-desc">
+                  Meaningful motion brings digital products to life. We utilize GSAP Flip, ScrollTrigger, and custom spring physics to build tactile micro-interactions, scrub-based kinetic storytelling, and buttery seamless page transitions.
+                </p>
+                <div class="service-tags">
+                  <span class="service-tag">GSAP ScrollTrigger</span>
+                  <span class="service-tag">Inertia Physics</span>
+                  <span class="service-tag">Micro-Interactions</span>
+                  <span class="service-tag">Fluid Transitions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 04 -->
+          <div class="service-item" data-preview="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=800&auto=format&fit=crop">
+            <div class="service-header" data-cursor-hover>
+              <span class="service-num">[ 04 ]</span>
+              <h3 class="service-name">3D WebGL & Interactive Graphics</h3>
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              </div>
+            </div>
+            <div class="service-body">
+              <div class="service-body-inner">
+                <p class="service-desc">
+                  Leveraging Three.js and custom GLSL vertex/fragment shaders, we inject physical depth, volumetric particles, holographic prisms, and real-time interactive scenes directly inside browser viewports with zero dropped frames.
+                </p>
+                <div class="service-tags">
+                  <span class="service-tag">Three.js</span>
+                  <span class="service-tag">Custom Shaders (GLSL)</span>
+                  <span class="service-tag">Particle Engines</span>
+                  <span class="service-tag">60 FPS WebGL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 05 -->
+          <div class="service-item" data-preview="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop">
+            <div class="service-header" data-cursor-hover>
+              <span class="service-num">[ 05 ]</span>
+              <h3 class="service-name">Conversion Strategy & Creative Direction</h3>
+              <div class="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              </div>
+            </div>
+            <div class="service-body">
+              <div class="service-body-inner">
+                <p class="service-desc">
+                  Stunning aesthetics only work when backed by razor-sharp commercial strategy. We define messaging hierarchies, friction-free conversion funnels, and narrative value propositions that convert cold traffic into high-ticket clients.
+                </p>
+                <div class="service-tags">
+                  <span class="service-tag">Positioning</span>
+                  <span class="service-tag">Conversion Funnels</span>
+                  <span class="service-tag">High-Impact Copy</span>
+                  <span class="service-tag">Performance Analytics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS SECTION ("THE 3 ACTS OF MAGIC" - FANNED-OUT CARDS WITH INERTIA PHYSICS) -->
+    <section class="process-section section" id="process">
+      <div class="container">
+        <div class="section-badge">
+          <svg viewBox="0 0 14 13" fill="currentColor"><path d="M10.4397 0C12.406 0 14 1.49129 14 3.33088C14 5.81492 12.5517 7.05695 9.83621 9.59745C7.66379 11.6298 7 13 7 13C7 13 6.33621 11.6298 4.16379 9.59745C1.44828 7.05695 0 5.81492 0 3.33088C0 1.49129 1.59402 0 3.56034 0C5.20795 0 6.5939 1.04708 7 2.46872C7.4061 1.04708 8.79205 0 10.4397 0Z"/></svg>
+          <span>{ THE PROCESS }</span>
+        </div>
+
+        <h2 class="section-title">THE THREE ACTS OF MAGIC</h2>
+        <p class="section-subtitle">
+          "The magician shows you something ordinary. Then makes it do something extraordinary. Finally comes the Prestige."
+        </p>
+
+        <!-- Fanned-out 3-Card Deck with Real Inertia Physics -->
+        <div class="process-deck-container">
+          <!-- Step 01 -->
+          <div class="process-card-wrapper" data-index="0">
+            <div class="process-card" data-cursor-hover>
+              <div>
+                <div class="process-card__step">Act 01 // Discovery</div>
+                <h3 class="process-card__title">The Pledge</h3>
+                <p class="process-card__desc">
+                  We begin with ruthless discovery. I dismantle your market, audit your competitors, and clarify your brand's unique leverage. No fluff, no filler — just an airtight blueprint of what needs to happen.
+                </p>
+              </div>
+              <div class="process-card__deliverables">
+                Discovery Call<br />
+                Strategic Brief<br />
+                Information Architecture<br />
+                Timeline & Scope
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="process-card-wrapper" data-index="1">
+            <div class="process-card" data-cursor-hover>
+              <div>
+                <div class="process-card__step">Act 02 // Engineering</div>
+                <h3 class="process-card__title">The Turn</h3>
+                <p class="process-card__desc">
+                  Design, WebGL mathematics, and GSAP motion coalesce. We construct your website piece by piece — every layout intentional, every interaction purposeful. You track live staging updates weekly.
+                </p>
+              </div>
+              <div class="process-card__deliverables">
+                Wireframes & Design Tokens<br />
+                WebGL / Three.js Scenes<br />
+                GSAP Choreography<br />
+                CMS & Content Integration
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="process-card-wrapper" data-index="2">
+            <div class="process-card" data-cursor-hover>
+              <div>
+                <div class="process-card__step">Act 03 // Delivery</div>
+                <h3 class="process-card__title">The Prestige</h3>
+                <p class="process-card__desc">
+                  Launch day. Your digital presence goes live — pristine, blindingly fast, and engineered to outperform. But the illusion doesn’t end; we stick around for post-launch audits and continuous conversion calibration.
+                </p>
+              </div>
+              <div class="process-card__deliverables">
+                Stress & QA Testing<br />
+                Speed Optimization<br />
+                Domain DNS Launch<br />
+                Post-Launch Support
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK SHOWCASE -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-badge">
+          <svg viewBox="0 0 14 13" fill="currentColor"><path d="M10.4397 0C12.406 0 14 1.49129 14 3.33088C14 5.81492 12.5517 7.05695 9.83621 9.59745C7.66379 11.6298 7 13 7 13C7 13 6.33621 11.6298 4.16379 9.59745C1.44828 7.05695 0 5.81492 0 3.33088C0 1.49129 1.59402 0 3.56034 0C5.20795 0 6.5939 1.04708 7 2.46872C7.4061 1.04708 8.79205 0 10.4397 0Z"/></svg>
+          <span>{ SELECTED WORK }</span>
+        </div>
+
+        <h2 class="section-title">PROVEN CASE STUDIES</h2>
+        <p class="section-subtitle">
+          Explore recent interactive platforms built for trailblazers in venture capital, artificial intelligence, cinema, and fintech.
+        </p>
+
+        <!-- Category Filters -->
+        <div class="work-filters" style="margin-top: 3rem;">
+          <button class="filter-btn is-active" data-filter="all" data-cursor-hover>All Work (05)</button>
+          <button class="filter-btn" data-filter="webgl" data-cursor-hover>WebGL & 3D</button>
+          <button class="filter-btn" data-filter="motion" data-cursor-hover>GSAP Motion</button>
+          <button class="filter-btn" data-filter="fintech" data-cursor-hover>Fintech & SaaS</button>
+        </div>
+
+        <!-- Work Cards Grid -->
+        <div class="work-grid">
+          <!-- Card 01: CTO Bees -->
+          <article class="work-card" data-category="motion fintech" data-client="CTO Bees Advisory" data-deliverable="Full Identity & GSAP Web Platform" data-tech="GSAP ScrollTrigger, Custom CMS, BEM CSS, Lenis" data-url="https://ctobees.com/" data-cursor-hover>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" alt="CTO Bees" loading="lazy" />
+              <div class="work-card__overlay"></div>
+            </div>
+            <div class="work-card__content">
+              <div class="work-card__header">
+                <h3 class="work-card__title">CTO Bees</h3>
+                <span class="work-card__index">(01)</span>
+              </div>
+              <p class="work-card__desc">
+                A boutique technology consulting firm uniting strategic foresight with engineering depth — empowering businesses to transform, scale, and deliver exceptional customer journeys.
+              </p>
+              <div class="work-card__footer">
+                <div class="work-card__tags">
+                  <span class="service-tag">AI Advisory</span>
+                  <span class="service-tag">GSAP</span>
+                </div>
+                <span class="work-card__link">Case Study ↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 02: Manana Films / RealBiomes -->
+          <article class="work-card" data-category="webgl motion" data-client="Manana Films & RealBiomes" data-deliverable="Photorealistic 3D WebGL Showcase" data-tech="Three.js, GLSL Custom Shaders, GSAP, Webflow" data-url="https://www.mananafilms.fr/" data-cursor-hover>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1200&auto=format&fit=crop" alt="Manana Films" loading="lazy" />
+              <div class="work-card__overlay"></div>
+            </div>
+            <div class="work-card__content">
+              <div class="work-card__header">
+                <h3 class="work-card__title">Manana Films</h3>
+                <span class="work-card__index">(02)</span>
+              </div>
+              <p class="work-card__desc">
+                Packaging beyond-AAA visual fidelity together with intuitive technical solutions for cinema and Unreal Engine's real-time game biome technologies.
+              </p>
+              <div class="work-card__footer">
+                <div class="work-card__tags">
+                  <span class="service-tag">WebGL 3D</span>
+                  <span class="service-tag">Cinematics</span>
+                </div>
+                <span class="work-card__link">Case Study ↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 03: Lumino -->
+          <article class="work-card" data-category="fintech motion" data-client="Lumino Infrastructure" data-deliverable="Next-Gen Payment Portal & Brand" data-tech="Lenis Smooth Scroll, Webflow CMS, Dynamic GSAP" data-url="https://lumino.io/" data-cursor-hover>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=1200&auto=format&fit=crop" alt="Lumino Payments" loading="lazy" />
+              <div class="work-card__overlay"></div>
+            </div>
+            <div class="work-card__content">
+              <div class="work-card__header">
+                <h3 class="work-card__title">Lumino</h3>
+                <span class="work-card__index">(03)</span>
+              </div>
+              <p class="work-card__desc">
+                Rethinking global merchant payments from the ground up — transparent rates, lightning settlements, and automated developer APIs.
+              </p>
+              <div class="work-card__footer">
+                <div class="work-card__tags">
+                  <span class="service-tag">Fintech</span>
+                  <span class="service-tag">Payment Rails</span>
+                </div>
+                <span class="work-card__link">Case Study ↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 04: JACK3D -->
+          <article class="work-card" data-category="motion webgl" data-client="JACK3D Labs" data-deliverable="Kinetic E-Commerce Experience" data-tech="GSAP ScrollTrigger, Custom Micro-Animations, 3D Mockup" data-url="https://www.jack3d.com/" data-cursor-hover>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop" alt="JACK3D" loading="lazy" />
+              <div class="work-card__overlay"></div>
+            </div>
+            <div class="work-card__content">
+              <div class="work-card__header">
+                <h3 class="work-card__title">JACK3D</h3>
+                <span class="work-card__index">(04)</span>
+              </div>
+              <p class="work-card__desc">
+                High-voltage athletic nutrition website featuring kinetic typography, particle bursts, dynamic product showcases, and seamless checkout pipelines.
+              </p>
+              <div class="work-card__footer">
+                <div class="work-card__tags">
+                  <span class="service-tag">E-Commerce</span>
+                  <span class="service-tag">Kinetic Motion</span>
+                </div>
+                <span class="work-card__link">Case Study ↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 05: Almore Capital -->
+          <article class="work-card" data-category="fintech" data-client="Almore Capital Group" data-deliverable="Institutional Fund Web Portal" data-tech="Interactive Financial Charts, Custom BEM Architecture" data-url="https://www.almorecapital.com/" data-cursor-hover>
+            <div class="work-card__media">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Almore Capital" loading="lazy" />
+              <div class="work-card__overlay"></div>
+            </div>
+            <div class="work-card__content">
+              <div class="work-card__header">
+                <h3 class="work-card__title">Almore Capital</h3>
+                <span class="work-card__index">(05)</span>
+              </div>
+              <p class="work-card__desc">
+                A commercial mortgage lender operating across major markets in the U.S. and Canada, delivering steady yields through professionally managed, institutional-grade funds.
+              </p>
+              <div class="work-card__footer">
+                <div class="work-card__tags">
+                  <span class="service-tag">Mortgage Fund</span>
+                  <span class="service-tag">Institutional</span>
+                </div>
+                <span class="work-card__link">Case Study ↗</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ULTRAVIOLET FLASHLIGHT FOOTER (NBNZIA SIGNATURE DUPLICATE MASK) -->
+    <footer class="footer-wrap" id="contact">
+      <!-- Container holding the dual layers -->
+      <div class="footer-flashlight-container">
+        
+        <!-- Base Layer (Default Obsidian & Clean Off-White) -->
+        <div class="footer-layer footer-inner">
+          <div class="section-badge">
+            <svg viewBox="0 0 14 13" fill="currentColor"><path d="M10.4397 0C12.406 0 14 1.49129 14 3.33088C14 5.81492 12.5517 7.05695 9.83621 9.59745C7.66379 11.6298 7 13 7 13C7 13 6.33621 11.6298 4.16379 9.59745C1.44828 7.05695 0 5.81492 0 3.33088C0 1.49129 1.59402 0 3.56034 0C5.20795 0 6.5939 1.04708 7 2.46872C7.4061 1.04708 8.79205 0 10.4397 0Z"/></svg>
+            <span>{ LET'S TALK }</span>
+          </div>
+
+          <div class="footer-hero-line">
+            <span>READY FOR</span>
+            <img class="footer-inline-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Founder Portrait" />
+            <span>YOUR</span>
+          </div>
+          <div class="footer-hero-line">
+            <span>PRESTIGE</span>
+            <span>MOMENT?</span>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="footer-form-wrapper">
+            <form class="contact-form">
+              <div class="form-group">
+                <label class="form-label" for="user-name">Your Name</label>
+                <input class="form-input" type="text" id="user-name" name="name" required placeholder="Alexander Vance" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="user-email">Email Address</label>
+                <input class="form-input" type="email" id="user-email" name="email" required placeholder="alex@studio.co" />
+              </div>
+              <button class="btn btn--accent" type="submit" data-cursor-hover>
+                <span class="button-text_wrap">
+                  <span class="button-text">Transmit Signal ↗</span>
+                  <span class="button-text">Transmit Signal ↗</span>
+                </span>
+              </button>
+              <div class="form-status" role="alert">
+                ✓ Signal received! Our illusionist team will respond within 24 hours.
+              </div>
+            </form>
+          </div>
+
+          <!-- Footer Metadata -->
+          <div class="footer-bottom">
+            <div>
+              <p>© NBNZIA STUDIO 2026 // ALL RIGHTS RESERVED</p>
+              <p style="margin-top: 0.25rem;">BUILT WITH THREE.JS · GSAP · LENIS</p>
+            </div>
+
+            <div class="footer-socials">
+              <a href="https://webflow.com" target="_blank" rel="noopener" class="footer-social-link" data-cursor-hover>WEBFLOW</a>
+              <a href="https://github.com" target="_blank" rel="noopener" class="footer-social-link" data-cursor-hover>GITHUB</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-link" data-cursor-hover>LINKEDIN</a>
+              <a href="mailto:hey@nbnzia.com" class="footer-social-link" data-cursor-hover>HEY@NBNZIA.COM</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secret Duplicate Layer (Revealed exclusively through Ultraviolet Cursor Spotlight) -->
+        <div class="footer-layer footer-layer--duplicate footer-inner" aria-hidden="true">
+          <div class="section-badge">
+            <svg viewBox="0 0 14 13" fill="currentColor"><path d="M10.4397 0C12.406 0 14 1.49129 14 3.33088C14 5.81492 12.5517 7.05695 9.83621 9.59745C7.66379 11.6298 7 13 7 13C7 13 6.33621 11.6298 4.16379 9.59745C1.44828 7.05695 0 5.81492 0 3.33088C0 1.49129 1.59402 0 3.56034 0C5.20795 0 6.5939 1.04708 7 2.46872C7.4061 1.04708 8.79205 0 10.4397 0Z"/></svg>
+            <span>{ ULTRAVIOLET ILLUSION ACTIVE }</span>
+          </div>
+
+          <div class="footer-hero-line">
+            <span>READY FOR</span>
+            <img class="footer-inline-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="" />
+            <span>YOUR</span>
+          </div>
+          <div class="footer-hero-line">
+            <span>PRESTIGE</span>
+            <span>MOMENT?</span>
+          </div>
+
+          <div class="footer-bottom">
+            <div>
+              <p>THE TRICK IS COMPLETE // YOU ARE IN THE PRESTIGE</p>
+            </div>
+            <div class="footer-socials">
+              <span>✦ BESPOKE WEBGL</span>
+              <span>✦ 60 FPS MOTION</span>
+              <span>✦ AWARD-WINNING CODE</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- =========================================================================
+       EMOJI RAIN CONTAINER
+       ========================================================================= -->
+  <div class="emoji-rain-container" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       CASE STUDY DETAIL MODAL DRAWER
+       ========================================================================= -->
+  <div class="modal-backdrop" aria-hidden="true" role="dialog">
+    <div class="modal-drawer">
+      <button class="modal-close-btn" type="button" aria-label="Close modal" data-cursor-hover>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div class="modal-content">
+        <div class="section-badge">{ CASE STUDY BREAKDOWN }</div>
+        <h2 class="modal-title section-title" style="font-size: 2.75rem; margin-top: 0.5rem;">Project Title</h2>
+        <p class="modal-desc" style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 2rem;">
+          Project overview description goes here.
+        </p>
+
+        <div class="modal-meta-grid">
+          <div>
+            <div class="modal-meta-label">Client</div>
+            <div class="modal-meta-val modal-client">Client Name</div>
+          </div>
+          <div>
+            <div class="modal-meta-label">Deliverables</div>
+            <div class="modal-meta-val modal-deliverable">Full Web Build</div>
+          </div>
+          <div>
+            <div class="modal-meta-label">Technologies</div>
+            <div class="modal-meta-val modal-tech">Three.js, GSAP, Lenis</div>
+          </div>
+          <div>
+            <div class="modal-meta-label">Outcome</div>
+            <div class="modal-meta-val" style="color: var(--accent-orange);">+340% Conversions</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
+          <a href="#" target="_blank" rel="noopener" class="btn btn--accent modal-live-link" data-cursor-hover>
+            <span class="button-text_wrap">
+              <span class="button-text">Visit Live Website ↗</span>
+              <span class="button-text">Visit Live Website ↗</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

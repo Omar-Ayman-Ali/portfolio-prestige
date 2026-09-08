@@ -1,0 +1,317 @@
+@import './variables.css';
+@import './reset.css';
+@import './components.css';
+
+/* ==========================================================================
+   GLOBAL LAYOUT & CONTAINERS
+   ========================================================================== */
+.site-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: clamp(5rem, 10vw, 11rem) 0;
+  position: relative;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+  padding-top: clamp(8rem, 14vw, 12rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+}
+
+.hero__pretitle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  color: var(--accent-orange);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.hero__pretitle::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent-orange);
+}
+
+.hero__sentence {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8.2vw, 8.8rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+}
+
+.hero__sentence .text-reveal {
+  display: block;
+  overflow: hidden;
+}
+
+.hero__sentence .text-reveal-inner {
+  display: block;
+  transform: translateY(100%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero__sentence.is-revealed .text-reveal-inner {
+  transform: translateY(0);
+}
+
+.hero__sentence .prestige-span {
+  background: linear-gradient(90deg, #fff 0%, var(--accent-orange) 60%, var(--accent-amber) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero__bottom {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 3rem;
+  align-items: flex-end;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 2rem;
+}
+
+.hero__description {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero__meta span {
+  color: var(--text-primary);
+}
+
+.hero__scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--accent-orange);
+  animation: scroll-drop 2s infinite ease-in-out;
+}
+
+@keyframes scroll-drop {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+/* ==========================================================================
+   MANIFESTO / PHILOSOPHY SECTION
+   ========================================================================== */
+.manifesto-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(8, 8, 10, 0) 0%, rgba(13, 13, 17, 0.7) 50%, rgba(8, 8, 10, 0) 100%);
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.manifesto-sidebar {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: sticky;
+  top: 8rem;
+}
+
+.manifesto-text {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.2vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--text-secondary);
+}
+
+.manifesto-text strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.manifesto-text .highlight {
+  color: var(--accent-orange);
+}
+
+/* Stats counter strip */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 5rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #fff;
+  line-height: 1;
+}
+
+.stat-number span {
+  color: var(--accent-orange);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .manifesto-sidebar {
+    position: static;
+  }
+
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__bottom {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-body-inner {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    gap: 1.5rem;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar__links,
+  .navbar__status {
+    display: none;
+  }
+
+  .service-header {
+    grid-template-columns: 50px 1fr auto;
+  }
+
+  .stats-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .process-deck-container {
+    min-height: auto;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .process-card-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .process-card {
+    height: auto;
+    min-height: 380px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+}

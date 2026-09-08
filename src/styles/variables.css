@@ -1,0 +1,51 @@
+:root {
+  /* Color Palette - Deep Editorial Luxury */
+  --bg-main: #08080a;
+  --bg-surface: #101014;
+  --bg-surface-elevated: #16161c;
+  --bg-card: #131317;
+  --bg-card-hover: #1c1c24;
+
+  --text-primary: #f3f2ee;
+  --text-secondary: #c2c0b8;
+  --text-muted: #797884;
+  --text-dim: #44434e;
+
+  /* Accents */
+  --accent-orange: #ff4800;
+  --accent-amber: #ff9e1f;
+  --accent-glow: rgba(255, 72, 0, 0.35);
+  --accent-blue: #3b82f6;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.28);
+  --border-accent: rgba(255, 72, 0, 0.5);
+
+  /* Typography */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* Container */
+  --container-max: 1440px;
+  --container-padding: clamp(1.25rem, 4vw, 3.5rem);
+
+  /* Easing & Durations */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+  --ease-elastic: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-normal: 0.4s var(--ease-out-expo);
+  --transition-slow: 0.8s var(--ease-out-expo);
+}
